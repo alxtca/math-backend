@@ -33,4 +33,9 @@ apiRouter.get("/profile/:username/following", userController.ifUserExists, userC
 apiRouter.post("/addFollow/:username", userController.apiMustBeLoggedIn, followController.apiAddFollow)
 apiRouter.post("/removeFollow/:username", userController.apiMustBeLoggedIn, followController.apiRemoveFollow)
 
+// math app routes
+apiRouter.post("/math-challenge-results", userController.apiMustBeLoggedIn, userController.mathChallengeResults)
+apiRouter.post("/math-overall-score", userController.apiMustBeLoggedIn, userController.mathOverallScore)
+apiRouter.get("/math-leaderboard", userController.mathLeaderboard)
+
 module.exports = apiRouter
